@@ -8,7 +8,7 @@ const soldStock = async (productID, stockSoldData) => {
   try {
     
     const myProductData = await Product.findOne({ _id: productID });
-    let myUpdatedStock = myProductData.stock - stockSoldData;
+    let myUpdatedStock = parseInt(myProductData.stock) - parseInt(stockSoldData);
     console.log("MY SOLD STOCK: ", myUpdatedStock);
 
     const SoldStock = await Product.findByIdAndUpdate(
